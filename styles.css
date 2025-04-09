@@ -1,0 +1,609 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    min-height: 100vh;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    padding: 15px;
+    gap: 15px;
+}
+
+/* 属性栏样式 */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.stat-text {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 事件库标题样式 */
+.deck-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 2px solid #f0f2f5;
+}
+
+/* 主界面样式 */
+.main-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.year-display {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    min-height: 200px;
+}
+
+.card-slot {
+    width: 140px;
+    height: 200px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.card-slot:hover {
+    transform: scale(1.05);
+}
+
+/* 事件面板样式 */
+.event-panel {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 15px;
+    min-height: 150px;
+}
+
+.event-description {
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    font-size: 16px;
+}
+
+.option-button:hover {
+    transform: scale(1.02);
+    background: #45a049;
+}
+
+/* 剩余卡片信息样式 */
+.deck-info {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.remaining-cards-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: white;
+}
+
+.remaining-card-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-size: 14px;
+    border: 1px solid #eee;
+}
+
+.card-name {
+    flex: 1;
+    margin-left: 8px;
+}
+
+.card-rarity-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .game-container {
+        min-height: auto;
+        padding: 10px;
+    }
+
+    .stats-bar {
+        padding: 10px;
+    }
+
+    .stat-icon {
+        font-size: 20px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-slot {
+        width: 120px;
+        height: 180px;
+    }
+
+    .year-display {
+        font-size: 24px;
+    }
+
+    .event-description {
+        font-size: 14px;
+    }
+
+    .option-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .remaining-cards-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .remaining-card-item {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+}
+
+/* 卡牌样式 */
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-front {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+}
+
+.card-back {
+    background: #f0f0f0;
+    transform: rotateY(180deg);
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.card-content {
+    font-size: 14px;
+    line-height: 1.4;
+    width: 100%;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-content p {
+    margin: 0;
+    padding: 0;
+}
+
+.card-content p:first-child {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.card-content p:nth-child(2) {
+    color: #666;
+    font-style: italic;
+}
+
+.card-content p:not(:first-child):not(:nth-child(2)) {
+    padding-left: 10px;
+    position: relative;
+}
+
+.card-content p:not(:first-child):not(:nth-child(2))::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #666;
+}
+
+.card-pattern {
+    width: 80%;
+    height: 80%;
+    background: repeating-linear-gradient(
+        45deg,
+        #ddd,
+        #ddd 10px,
+        #eee 10px,
+        #eee 20px
+    );
+    border-radius: 5px;
+}
+
+/* 卡牌稀有度样式 */
+.card[data-rarity="white"] .card-front {
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+    color: #333;
+    border: 2px solid #d0d0d0;
+}
+
+.card[data-rarity="green"] .card-front {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #1b5e20;
+    border: 2px solid #81c784;
+}
+
+.card[data-rarity="blue"] .card-front {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    color: #0d47a1;
+    border: 2px solid #64b5f6;
+}
+
+.card[data-rarity="special"] .card-front {
+    background: linear-gradient(135deg, #fff8e1, #ffe082);
+    color: #ff6f00;
+    border: 2px solid #ffd54f;
+    animation: rainbow-border 3s infinite;
+}
+
+@keyframes rainbow-border {
+    0% { border-color: #ff0000; }
+    16.6% { border-color: #ff8800; }
+    33.3% { border-color: #ffff00; }
+    50% { border-color: #00ff00; }
+    66.6% { border-color: #0000ff; }
+    83.3% { border-color: #8800ff; }
+    100% { border-color: #ff0000; }
+}
+
+/* 卡片动画效果 */
+@keyframes flipCard {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(180deg); }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%) rotateY(0deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card.sliding-in {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* 剩余卡片列表样式 */
+.remaining-card-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.remaining-card-item:last-child {
+    border-bottom: none;
+}
+
+.card-name {
+    flex: 1;
+}
+
+.card-count {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.card-rarity-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.rarity-white {
+    background-color: #d0d0d0;
+}
+
+.rarity-green {
+    background-color: #81c784;
+}
+
+.rarity-blue {
+    background-color: #64b5f6;
+}
+
+.rarity-special {
+    background: linear-gradient(45deg, #ff0000, #ff8800, #ffff00, #00ff00, #0000ff, #8800ff);
+    animation: rainbow 3s infinite;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 蜡烛动画 */
+.candle-animation {
+    width: 20px;
+    height: 30px;
+    background: #ff6b6b;
+    border-radius: 5px;
+    position: relative;
+}
+
+.candle-animation::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: #ffd93d;
+    border-radius: 50%;
+    animation: flicker 1s infinite;
+}
+
+/* 金币动画 */
+.coin-animation {
+    width: 30px;
+    height: 30px;
+    background: #ffd700;
+    border-radius: 50%;
+    position: relative;
+    animation: spin 2s infinite linear;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes flipPage {
+    0% { transform: rotateX(0deg); }
+    50% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0deg); }
+}
+
+@keyframes statChange {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.stat-value.changed {
+    animation: statChange 0.5s ease-out;
+}
+
+@keyframes flicker {
+    0%, 100% { 
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+    50% { 
+        opacity: 0.5;
+        transform: translateX(-50%) scale(0.9);
+    }
+}
+
+@keyframes spin {
+    from { 
+        transform: rotateY(0deg) scale(1);
+    }
+    50% {
+        transform: rotateY(180deg) scale(1.2);
+    }
+    to { 
+        transform: rotateY(360deg) scale(1);
+    }
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+}
+
+#restartButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 结果显示样式 */
+.result-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.result-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.effects-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.effect-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.effect-item .positive {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.effect-item .negative {
+    color: #f44336;
+    font-weight: bold;
+} 

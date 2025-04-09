@@ -1,0 +1,490 @@
+{
+    "attributes": {
+        "health": {
+            "name": "健康",
+            "min": 0,
+            "max": 10,
+            "initial": 5
+        },
+        "wealth": {
+            "name": "财富",
+            "min": 0,
+            "max": 100,
+            "initial": 10
+        }
+    },
+    "cards": [
+    {
+      "id": "CARD01",
+      "name": "意外之财",
+      "desc": "你遇到了一笔意外之财",
+      "rarity": "white",
+      "events": [
+        {
+          "name": "捡到钱包",
+          "desc": "你在路边捡到一个钱包",
+          "options": [
+            {
+              "text": "交给警察",
+              "result": "你的善举得到了警察的表扬",
+              "effect": {"wealth": 1, "health": 1}
+            },
+            {
+              "text": "据为己有",
+              "result": "你偷偷把钱据为己有，但内心一直不安",
+              "effect": {"wealth": 3, "health": -2}
+            }
+          ]
+        },
+        {
+          "name": "中彩票",
+          "desc": "你买彩票中了小奖",
+          "options": [
+            {
+              "text": "继续投资",
+              "result": "你决定继续投资彩票，希望能中大奖",
+              "effect": {"wealth": "random(-2,8)"}
+            },
+            {
+              "text": "存起来",
+              "result": "你决定把钱存起来，以备不时之需",
+              "effect": {"wealth": 2}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD02",
+      "name": "职场晋升",
+      "desc": "获得升职机会",
+      "rarity": "green",
+      "events": [
+        {
+          "name": "管理岗位",
+          "desc": "公司 offer 你一个管理岗位",
+          "options": [
+            {
+              "text": "接受挑战",
+              "result": "你接受了管理岗位，虽然压力很大但收入增加了",
+              "effect": {"wealth": 5, "health": -3}
+            },
+            {
+              "text": "维持现状",
+              "result": "你选择继续做技术工作，保持工作生活平衡",
+              "effect": {"wealth": 2, "health": 1}
+            }
+          ]
+        },
+        {
+          "name": "创业机会",
+          "desc": "发现一个创业商机",
+          "options": [
+            {
+              "text": "全力以赴",
+              "result": "你决定全身心投入创业，虽然风险很大但回报可能更高",
+              "effect": {"wealth": "random(-8,15)", "health": -4}
+            },
+            {
+              "text": "保守投资",
+              "result": "你选择保守投资，降低风险",
+              "effect": {"wealth": "random(-3,8)", "health": -2}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD03",
+      "name": "年度旅行",
+      "desc": "计划假期旅行",
+      "rarity": "white",
+      "events": [
+        {
+          "name": "欧洲游",
+          "desc": "你计划去欧洲旅行",
+          "options": [
+            {
+              "text": "豪华游",
+              "result": "你选择了豪华欧洲游，享受了顶级服务",
+              "effect": {"wealth": -6, "health": 4}
+            },
+            {
+              "text": "穷游",
+              "result": "你选择了穷游，虽然条件艰苦但体验了当地生活",
+              "effect": {"wealth": -2, "health": 2}
+            }
+          ]
+        },
+        {
+          "name": "非洲游",
+          "desc": "你计划去非洲旅行",
+          "options": [
+            {
+              "text": "豪华游",
+              "result": "你选择了豪华非洲游，享受了顶级服务",
+              "effect": {"wealth": -5, "health": 3}
+            },
+            {
+              "text": "穷游",
+              "result": "你选择了穷游，不幸感染了疟疾",
+              "effect": {"wealth": -1, "health": -3}
+            }
+          ]
+        },
+        {
+          "name": "邮轮游",
+          "desc": "你计划乘坐邮轮旅行",
+          "options": [
+            {
+              "text": "豪华舱",
+              "result": "你选择了豪华舱，享受了完美的海上假期",
+              "effect": {"wealth": -4, "health": 3}
+            },
+            {
+              "text": "经济舱",
+              "result": "你选择了经济舱，虽然空间小但也能享受海景",
+              "effect": {"wealth": -2, "health": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD04",
+      "name": "投资机会",
+      "desc": "朋友推荐理财项目",
+      "rarity": "green",
+      "events": [
+        {
+          "name": "股票投资",
+          "desc": "朋友推荐了一支股票",
+          "options": [
+            {
+              "text": "投资50%积蓄",
+              "result": "你决定投入一半积蓄到股票市场",
+              "effect": {"wealth": "random(-5,10)"}
+            },
+            {
+              "text": "小额尝试",
+              "result": "你决定先小额尝试，降低风险",
+              "effect": {"wealth": "random(-2,5)"}
+            }
+          ]
+        },
+        {
+          "name": "加密货币",
+          "desc": "朋友推荐投资加密货币",
+          "options": [
+            {
+              "text": "大量投资",
+              "result": "你决定大量投资加密货币，希望获得高回报",
+              "effect": {"wealth": "random(-8,15)"}
+            },
+            {
+              "text": "小额尝试",
+              "result": "你决定小额尝试加密货币，降低风险",
+              "effect": {"wealth": "random(-3,7)"}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD05",
+      "name": "突发疾病",
+      "desc": "你突然感到身体不适",
+      "rarity": "white",
+      "events": [
+        {
+          "name": "感冒发烧",
+          "desc": "你突然感冒发烧",
+          "options": [
+            {
+              "text": "去医院",
+              "result": "你去了医院，医生给你开了药，很快康复了",
+              "effect": {"wealth": -3, "health": 4}
+            },
+            {
+              "text": "在家休息",
+              "result": "你选择在家休息，但病情有所加重",
+              "effect": {"health": -2}
+            }
+          ]
+        },
+        {
+          "name": "慢性病",
+          "desc": "你被诊断出患有慢性病",
+          "options": [
+            {
+              "text": "积极治疗",
+              "result": "你决定积极治疗，虽然花费不少但病情得到控制",
+              "effect": {"wealth": -4, "health": 3}
+            },
+            {
+              "text": "保守治疗",
+              "result": "你选择保守治疗，病情有所缓解",
+              "effect": {"wealth": -2, "health": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD06",
+      "name": "神秘老人",
+      "desc": "遇到兜售秘药的老人",
+      "rarity": "blue",
+      "events": [
+        {
+          "name": "长寿药水",
+          "desc": "老人向你兜售长寿药水",
+          "options": [
+            {
+              "text": "购买药水",
+              "result": "你购买了药水，效果未知",
+              "effect": {"wealth": -3, "health": "random(5,-5)"}
+            },
+            {
+              "text": "无视离开",
+              "result": "你选择无视离开，保持健康的生活方式",
+              "effect": {"health": 1}
+            }
+          ]
+        },
+        {
+          "name": "智慧药丸",
+          "desc": "老人向你兜售智慧药丸",
+          "options": [
+            {
+              "text": "购买药丸",
+              "result": "你购买了药丸，感觉思维更加敏捷",
+              "effect": {"wealth": -2, "health": "random(3,-2)"}
+            },
+            {
+              "text": "无视离开",
+              "result": "你选择无视离开，相信自己的努力",
+              "effect": {"health": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD07",
+      "name": "健身计划",
+      "desc": "决定开始健身",
+      "rarity": "white",
+      "events": [
+        {
+          "name": "健身房",
+          "desc": "你决定去健身房健身",
+          "options": [
+            {
+              "text": "请私教",
+              "result": "你请了私教，健身效果显著",
+              "effect": {"wealth": -2, "health": 4}
+            },
+            {
+              "text": "自学健身",
+              "result": "你选择自学健身，虽然进步较慢但也能保持健康",
+              "effect": {"wealth": 0, "health": 2}
+            }
+          ]
+        },
+        {
+          "name": "户外运动",
+          "desc": "你决定进行户外运动",
+          "options": [
+            {
+              "text": "购买装备",
+              "result": "你购买了专业运动装备，运动效果更好",
+              "effect": {"wealth": -1, "health": 3}
+            },
+            {
+              "text": "简单运动",
+              "result": "你选择简单的户外运动，也能保持健康",
+              "effect": {"wealth": 0, "health": 2}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD08",
+      "name": "工作压力",
+      "desc": "工作压力很大",
+      "rarity": "white",
+      "events": [
+        {
+          "name": "加班",
+          "desc": "工作量大，需要加班",
+          "options": [
+            {
+              "text": "加班完成",
+              "result": "你选择加班完成工作，虽然很累但得到了领导的认可",
+              "effect": {"wealth": 2, "health": -3}
+            },
+            {
+              "text": "按时下班",
+              "result": "你选择按时下班，保持工作生活平衡",
+              "effect": {"wealth": -1, "health": 1}
+            }
+          ]
+        },
+        {
+          "name": "项目压力",
+          "desc": "项目 deadline 临近",
+          "options": [
+            {
+              "text": "全力以赴",
+              "result": "你全力以赴完成项目，虽然很累但项目成功",
+              "effect": {"wealth": 3, "health": -2}
+            },
+            {
+              "text": "寻求帮助",
+              "result": "你寻求同事帮助，共同完成项目",
+              "effect": {"wealth": 1, "health": 0}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD09",
+      "name": "学习机会",
+      "desc": "获得进修机会",
+      "rarity": "green",
+      "events": [
+        {
+          "name": "专业课程",
+          "desc": "公司提供专业课程培训",
+          "options": [
+            {
+              "text": "报名课程",
+              "result": "你报名了专业课程，虽然花费不少但学到了很多",
+              "effect": {"wealth": -3, "health": 1}
+            },
+            {
+              "text": "自学",
+              "result": "你选择自学，虽然进度较慢但也能学到知识",
+              "effect": {"wealth": -1, "health": 0}
+            }
+          ]
+        },
+        {
+          "name": "学历提升",
+          "desc": "有机会提升学历",
+          "options": [
+            {
+              "text": "攻读学位",
+              "result": "你决定攻读学位，虽然花费时间和金钱但未来回报可能更高",
+              "effect": {"wealth": -5, "health": -1}
+            },
+            {
+              "text": "继续工作",
+              "result": "你选择继续工作，积累经验",
+              "effect": {"wealth": 1, "health": 0}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD10",
+      "name": "时光倒流",
+      "desc": "你获得了一次回到过去的机会",
+      "rarity": "special",
+      "events": [
+        {
+          "name": "回到过去",
+          "desc": "你获得了一次回到过去的机会",
+          "options": [
+            {
+              "text": "回到5年前",
+              "result": "你回到了5年前，获得了更多寿命",
+              "effect": {"wealth": "random(-2,5)", "health": "random(1,3)"}
+            },
+            {
+              "text": "放弃机会",
+              "result": "你决定放弃回到过去的机会，活在当下",
+              "effect": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD11",
+      "name": "生命之水",
+      "desc": "你发现了一瓶传说中的生命之水",
+      "rarity": "special",
+      "events": [
+        {
+          "name": "生命之水",
+          "desc": "你发现了一瓶传说中的生命之水",
+          "options": [
+            {
+              "text": "喝下它",
+              "result": "你喝下了生命之水，感觉寿命延长了许多",
+              "effect": {"health": 5}
+            },
+            {
+              "text": "保存起来",
+              "result": "你决定保存生命之水，以备不时之需",
+              "effect": {"wealth": 3}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD12",
+      "name": "财富之神的祝福",
+      "desc": "财富之神降临，赐予你祝福",
+      "rarity": "special",
+      "events": [
+        {
+          "name": "财富祝福",
+          "desc": "财富之神降临，赐予你祝福",
+          "options": [
+            {
+              "text": "接受祝福",
+              "result": "你接受了财富之神的祝福，获得了大量财富",
+              "effect": {"wealth": 10, "health": -2}
+            },
+            {
+              "text": "拒绝祝福",
+              "result": "你拒绝了财富之神的祝福，选择保持健康",
+              "effect": {"health": 2}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CARD13",
+      "name": "命运之轮",
+      "desc": "你遇到了一个神秘的命运之轮",
+      "rarity": "special",
+      "events": [
+        {
+          "name": "命运之轮",
+          "desc": "你遇到了一个神秘的命运之轮",
+          "options": [
+            {
+              "text": "转动命运之轮",
+              "result": "你转动了命运之轮，命运发生了巨大变化",
+              "effect": {"wealth": "random(-5,15)", "health": "random(-3,5)"}
+            },
+            {
+              "text": "离开",
+              "result": "你选择离开，保持现状",
+              "effect": {}
+            }
+          ]
+        }
+      ]
+    }
+]
+}

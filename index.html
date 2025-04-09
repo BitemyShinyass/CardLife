@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生卡牌游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 属性栏 -->
+        <div class="stats-bar">
+            <div class="stat health">
+                <span class="stat-value">10</span>
+                <span class="stat-text">健康</span>
+            </div>
+            <div class="stat wealth">
+                <span class="stat-value">5</span>
+                <span class="stat-text">财富</span>
+            </div>
+        </div>
+
+        <!-- 主界面 -->
+        <div class="main-panel">
+            <div class="year-display">
+                <div class="year">2000</div>
+            </div>
+            <div class="cards-container">
+                <div class="card-slot" id="card1">
+                    <!-- 卡片内容将由 JavaScript 动态生成 -->
+                </div>
+                <div class="card-slot" id="card2">
+                    <!-- 卡片内容将由 JavaScript 动态生成 -->
+                </div>
+                <div class="card-slot" id="card3">
+                    <!-- 卡片内容将由 JavaScript 动态生成 -->
+                </div>
+            </div>
+            <div class="event-panel">
+                <div class="event-description"></div>
+                <div class="options-container"></div>
+            </div>
+        </div>
+
+        <!-- 剩余卡片信息 -->
+        <div class="deck-info">
+            <h3 class="deck-title">事件库</h3>
+            <div class="remaining-cards-list" id="remaining-cards-list">
+                <!-- 剩余卡牌列表将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div class="modal" id="gameOverModal">
+        <div class="modal-content">
+            <h2>游戏结束</h2>
+            <p>你的生命旅程到此结束...</p>
+            <button id="restartButton">重新开始</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html> 
