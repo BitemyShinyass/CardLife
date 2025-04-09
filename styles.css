@@ -192,23 +192,23 @@ body {
 @media (max-width: 600px), (max-device-width: 600px) {
     .game-container {
         min-height: auto;
-        padding: 8px;
+        padding: 5px;
         width: 100%;
         max-width: 100%;
-        gap: 8px;
+        gap: 5px;
     }
 
     .stats-bar {
-        padding: 8px;
-        margin-bottom: 5px;
+        padding: 5px;
+        margin-bottom: 3px;
     }
 
     .stat-icon {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .stat-value {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .cards-container {
@@ -216,65 +216,81 @@ body {
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: center;
-        gap: 8px;
+        gap: 5px;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        padding: 5px;
+        padding: 3px;
         width: 100%;
-        min-height: 120px;
+        min-height: 100px;
     }
 
     .card-slot {
-        width: 80px;
-        height: 120px;
+        width: 60px;
+        height: 90px;
         flex-shrink: 0;
     }
 
     .year-display {
-        font-size: 20px;
-        margin: 5px 0;
+        font-size: 18px;
+        margin: 3px 0;
     }
 
     .event-panel {
-        padding: 10px;
-        min-height: 120px;
+        padding: 8px;
+        min-height: 100px;
     }
 
     .event-description {
-        font-size: 14px;
-        margin-bottom: 8px;
-        padding: 8px;
+        font-size: 12px;
+        margin-bottom: 6px;
+        padding: 6px;
     }
 
     .options-container {
-        gap: 8px;
+        gap: 6px;
     }
 
     .option-button {
-        padding: 8px 12px;
-        font-size: 14px;
+        padding: 6px 10px;
+        font-size: 12px;
     }
 
     .deck-info {
-        padding: 10px;
-        margin-top: 5px;
+        padding: 8px;
+        margin-top: 3px;
     }
 
     .deck-title {
-        font-size: 16px;
-        margin-bottom: 5px;
+        font-size: 14px;
+        margin-bottom: 3px;
     }
 
     .remaining-cards-list {
         grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
-        max-height: 120px;
-        padding: 8px;
+        gap: 4px;
+        max-height: 100px;
+        padding: 6px;
     }
     
     .remaining-card-item {
+        font-size: 11px;
+        padding: 3px 5px;
+    }
+
+    /* 调整卡片内容样式 */
+    .card-title {
         font-size: 12px;
-        padding: 4px 6px;
+        margin-bottom: 5px;
+    }
+
+    .card-content {
+        font-size: 10px;
+        line-height: 1.2;
+        gap: 4px;
+    }
+
+    .card-front, .card-back {
+        padding: 8px;
     }
 }
 
