@@ -9,12 +9,13 @@
 body {
     font-family: 'Arial', sans-serif;
     background: #f0f2f5;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
     -webkit-overflow-scrolling: touch;
+    overflow: hidden;
 }
 
 .game-container {
@@ -22,12 +23,14 @@ body {
     flex-direction: column;
     width: 100%;
     max-width: 800px;
-    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
     background: white;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
     padding: 15px;
     gap: 15px;
+    overflow-y: auto;
 }
 
 /* 属性栏样式 */
@@ -194,7 +197,8 @@ body {
 /* 响应式设计 */
 @media (max-width: 600px), (max-device-width: 600px) {
     .game-container {
-        min-height: auto;
+        height: 100vh;
+        max-height: 100vh;
         padding: 5px;
         width: 100%;
         max-width: 100%;
@@ -228,8 +232,8 @@ body {
     }
 
     .card-slot {
-        width: 120px;
-        height: 168px;
+        width: 108px;
+        height: 151px;
         flex-shrink: 0;
     }
 
