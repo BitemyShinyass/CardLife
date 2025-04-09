@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .game-container {
@@ -187,10 +189,12 @@ body {
 }
 
 /* 响应式设计 */
-@media (max-width: 600px) {
+@media (max-width: 600px), (max-device-width: 600px) {
     .game-container {
         min-height: auto;
         padding: 10px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .stats-bar {
@@ -206,15 +210,21 @@ body {
     }
 
     .cards-container {
+        display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         gap: 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 5px;
+        width: 100%;
     }
 
     .card-slot {
         width: 100px;
         height: 150px;
+        flex-shrink: 0;
     }
 
     .year-display {
